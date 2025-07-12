@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 
 import './style.css';
 
-export const App: FC<{ name: string }> = ({ name }) => {
+export const App = ({ name }) => {
   const [users, setUsers] = useState([]);
   const [filterusers, setFilterUsers] = useState([]);
   const [search, setSearch] = useState('');
