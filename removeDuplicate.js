@@ -6,4 +6,8 @@ const result = arr.filter((item, index) => {
     return arr.indexOf(item) === index
 })
 
-console.log(result)
+const output = arr.filter((item, index, self) => {
+    return index === self.findIndex((obj) => obj === item);
+});
+
+console.log(result, output)

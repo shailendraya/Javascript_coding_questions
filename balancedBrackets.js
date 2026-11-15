@@ -54,3 +54,31 @@ const check = (input) => {
 
 // console.log(check(input));
 console.log(check(['{', '(', '{', ')', ')', '}'])); // ✅ true
+
+
+// *************************************************************
+
+const checkBalanceBrekets = (input) => {
+  const temp = []
+  const brackets = {
+        '(':')',
+        '{':'}',
+        '[': ']'
+    }
+  for(let i=0; i<input.length; i++){
+    if(Object.keys(brackets).includes(input[i])){
+      temp.push(input[i])
+    }else {
+      // console.log(temp.pop());
+      const last = temp[temp.length-1];
+      if(brackets[last] === input[i]) {
+        temp.pop();
+      } else {
+        return false;
+      }
+    }
+  }
+  return temp.length === 0;
+};
+
+console.log(checkBalanceBrekets('({}{{}}[])'))
