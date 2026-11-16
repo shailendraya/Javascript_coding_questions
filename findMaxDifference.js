@@ -1,16 +1,21 @@
 const data = (arr) => {
-    let max = 0
-    for(i=0;i<arr.length; i++) {
-        for(j=i+1; j<arr.length; j++){
-            // console.log(arr[i], arr[j])
-            if(max < Math.abs(arr[i] - arr[j])){
-                max = Math.abs(arr[i] - arr[j])
-                // console.log(max, arr[i], arr[j])
-            }
+    if (arr.length < 2) return 0;
+
+    let min = arr[0];
+    let max = arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+
+        if (arr[i] > max) {
+            max = arr[i];
         }
     }
-    return max
-}
 
+    return max - min;
+};
 
-console.log(data([1,2,3,4,5]))
+console.log(data([1, 2, 3, 4, 5])); // 4
+console.log(data([10, 2, 30, 4, 5])); // 28
